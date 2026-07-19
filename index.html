@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KK FISH CLUB</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Loading -->
+
+<div id="loader">
+
+<h1>🐠 KK FISH CLUB</h1>
+
+<p>Welcome to KK FISH GDK</p>
+
+</div>
+
+
+
+
+<!-- SCREEN 1 CLUB CODE -->
+
+<div class="container active" id="screen1">
+
+
+<div class="box">
+
+
+<h1>🐠 KK FISH CLUB</h1>
+
+<h2>Enter Club Code</h2>
+
+
+<input 
+id="clubCode"
+placeholder="Enter Club Code">
+
+
+<button onclick="checkClubCode()">
+
+Submit
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- SCREEN 2 OFFER CODE -->
+
+<div class="container" id="screen2">
+
+
+<div class="box">
+
+
+<h1>🎁 Offer Code</h1>
+
+
+<input
+id="offerCode"
+placeholder="Enter Offer Code">
+
+
+<button onclick="checkOfferCode()">
+
+Submit
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- SCREEN 3 SUCCESS -->
+
+<div class="container" id="screen3">
+
+
+<div class="box">
+
+
+<h1>✅ Correct Details</h1>
+
+
+<p>
+
+Welcome to KK FISH CLUB
+
+</p>
+
+
+<button onclick="showFishes()">
+
+View Fishes
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- SCREEN 4 FISH LIST -->
+
+
+<div class="container" id="screen4">
+
+
+<h1 class="title">
+
+🐠 KK FISH GDK FISH LIST
+
+</h1>
+
+
+<input 
+id="searchFish"
+placeholder="Search Fish"
+onkeyup="searchFish()">
+
+
+
+<div id="fishGrid" class="fish-grid">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
