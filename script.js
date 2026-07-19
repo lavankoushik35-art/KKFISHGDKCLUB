@@ -5,20 +5,11 @@ setTimeout(() => {
 
 // Fish List
 let fishes = JSON.parse(localStorage.getItem("kkfishData")) || [
-    "Kois",
-    "Guppies",
-    "Flowerhorn",
-    "Beta Fish",
-    "Moulis",
-    "Arowana",
-    "Tiger Barbs",
-    "Sharks",
-    "Panda Moulis",
-    "Alligator Gar",
-    "Small Oscars",
-    "Big Oscars",
-    "Polar Parrots",
-    "Parrots"
+   {  
+       name:"Kois",
+        price:"350",
+        offer:"Combo Offer"
+    }
 ];
 
 // Show selected screen
