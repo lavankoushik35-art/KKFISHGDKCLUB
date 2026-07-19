@@ -1,41 +1,51 @@
-// ============================// KK FISH CLUB
-// script.js
-// ===============================
-
 // Welcome
 console.log("Welcome to KK FISH CLUB");
 
-// Button Animation
-document.querySelectorAll("button").forEach(button => {
-    button.addEventListener("click", () => {
-        button.style.transform = "scale(0.95)";
-        setTimeout(() => {
-            button.style.transform = "scale(1)";
-        }, 150);
-    });
-});
-
-// ===============================
 // Confirmation Codes
-// ===============================
-
 const validCodes = [
-    "KKFISHGDK",
-    "KKFISHHEAVEN",
-    "KKAQUA",
-    "KKAQUARIUMS",
-    "GDKHEAVENFISHES"
+  "KKFISHGDK",
+  "KKFISHHEAVEN",
+  "KKAQUA",
+  "KKAQUARIUMS",
+  "GDKHEAVENFISHES"
 ];
 
 // Check Confirmation Code
 function checkCode() {
+  const input = document.getElementById("code");
 
-    const input = document.getElementById("code");
+  if (!input) {
+    alert("Code input not found.");
+    return;
+  }
 
-    if (!input) {
-        alert("Code input not found.");
-        return;
-    }
+  const code = input.value.trim().toUpperCase();
 
-    const code =
-        
+  if (validCodes.includes(code)) {
+    window.location.href = "password.html";
+  } else {
+    alert("Invalid Confirmation Code");
+  }
+}
+
+// Customer Login
+function customerLogin() {
+  const pass = document.getElementById("pass");
+
+  if (pass.value === "kkfishmember") {
+    window.location.href = "customer.html";
+  } else {
+    alert("Wrong Password");
+  }
+}
+
+// Admin Login
+function adminLogin() {
+  const admin = document.getElementById("adminid");
+
+  if (admin.value === "KKFISHADMIN.GDK") {
+    window.location.href = "admin.html";
+  } else {
+    alert("Invalid Admin ID");
+  }
+}
