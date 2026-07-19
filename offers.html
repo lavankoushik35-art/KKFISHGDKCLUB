@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KK FISH CLUB OFFERS</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container active">
+
+
+<div class="box">
+
+
+<h1>
+🎁 KK FISH CLUB OFFERS
+</h1>
+
+
+<h2>
+Enter Coupon Code
+</h2>
+
+
+<input 
+id="coupon"
+placeholder="Enter Coupon Code">
+
+
+<button onclick="checkCoupon()">
+
+Apply Coupon
+
+</button>
+
+
+<p id="offerResult"></p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function checkCoupon(){
+
+
+let code =
+document.getElementById("coupon").value;
+
+
+
+let result =
+document.getElementById("offerResult");
+
+
+
+if(code==="KKOFFER10"){
+
+
+result.innerHTML=`
+
+✅ Coupon Applied
+
+<br><br>
+
+🎁 Combo Offer:
+
+Kois + Guppies + Moulis
+
+Special Discount Available
+
+`;
+
+
+}
+
+
+else if(code==="FISHCLUB"){
+
+
+result.innerHTML=`
+
+✅ VIP Offer Unlocked
+
+<br><br>
+
+🐠 Premium Fish Combo Available
+
+`;
+
+
+}
+
+
+
+else{
+
+
+result.innerHTML=
+
+"❌ Invalid Coupon";
+
+
+}
+
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>+
