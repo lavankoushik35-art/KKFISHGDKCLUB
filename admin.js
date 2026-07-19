@@ -75,7 +75,7 @@ document.getElementById("fishName").value;
 
 let price =
 document.getElementById("fishPrice").value;
-
+let image = document.getElementById("fishImage").value;
 
 let offer =
 document.getElementById("fishOffer").value;
