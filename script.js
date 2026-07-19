@@ -1,316 +1,113 @@
-// =================================
-// KK FISH CLUB
-// script.js
-// =================================
-
+// Hide loading screen after 3 seconds
+setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+}, 3000);
 
 // Fish List
-
 const fishes = [
-
-"Kois",
-"Guppies",
-"Flowerhorn",
-"Beta Fish",
-"Moulis",
-"Arowana",
-"Tiger Barbs",
-"Sharks",
-"Panda Moulis",
-"Alligator Gar",
-"Small Oscars",
-"Big Oscars",
-"Polar Parrots",
-"Parrots"
-
+    "Kois",
+    "Guppies",
+    "Flowerhorn",
+    "Beta Fish",
+    "Moulis",
+    "Arowana",
+    "Tiger Barbs",
+    "Sharks",
+    "Panda Moulis",
+    "Alligator Gar",
+    "Small Oscars",
+    "Big Oscars",
+    "Polar Parrots",
+    "Parrots"
 ];
 
+// Show selected screen
+function showScreen(id) {
+    document.querySelectorAll(".container").forEach(screen => {
+        screen.classList.remove("active");
+    });
 
+    document.getElementById(id).classList.add("active");
+}
 
-// WhatsApp Number
+// Check Club Code
+function checkClubCode() {
 
-const whatsappNumber = "919381687402";
+    let code = document.getElementById("clubCode").value.trim().toLowerCase();
 
-
-
-
-// Loading Screen
-
-window.onload = function(){
-
-setTimeout(()=>{
-
-let loader=document.getElementById("loader");
-
-if(loader){
-
-loader.style.display="none";
+    if (code === "kkfishclub") {
+        showScreen("screen2");
+    } else {
+        alert("❌ Wrong Club Code");
+    }
 
 }
 
-},2500);
+// Check Offer Code
+function checkOfferCode() {
 
+    let code = document.getElementById("offerCode").value.trim();
 
-};
-
-
-
-
-// Screen Change
-
-function showScreen(id){
-
-
-document.querySelectorAll(".container")
-.forEach(screen=>{
-
-screen.classList.remove("active");
-
-});
-
-
-document.getElementById(id)
-.classList.add("active");
-
+    if (code === "123456789") {
+        showScreen("screen3");
+    } else {
+        alert("❌ Wrong Offer Code");
+    }
 
 }
 
+// Show Fish List
+function showFishes() {
 
+    showScreen("screen4");
 
+    let grid = document.getElementById("fishGrid");
 
-// Club Code
+    grid.innerHTML = "";
 
-function checkClubCode(){
+    fishes.forEach(fish => {
 
+        let card = document.createElement("div");
 
-let code =
-document.getElementById("clubCode").value.trim();
+        card.className = "card";
 
+        card.innerHTML = `
+            <h3>🐠 ${fish}</h3>
+            <p>🎁 Today's Club Offer Available</p>
+            <button onclick="sendOffer(this,'${fish}')">
+                💚 Get Offer
+            </button>
+        `;
 
-if(code === "kkfishclub"){
+        grid.appendChild(card);
 
-
-showScreen("screen2");
-
-
-}
-
-else{
-
-
-alert("❌ Wrong Club Code");
-
-
-}
-
-
+    });
 
 }
 
+// WhatsApp
+function sendOffer(button, fish) {
 
+    let number = "919381687402";
 
+    let message =
+`Hello KK FISH GDK,
 
-// Offer Code
+I want today's offer for:
 
-function checkOfferCode(){
+🐠 ${fish}
 
-
-let code =
-document.getElementById("offerCode").value.trim();
-
-
-
-if(code === "123456789"){
-
-
-showScreen("screen3");
-
-
-}
-
-else{
-
-
-alert("❌ Wrong Offer Code");
-
-
-}
-
-
-}
-
-
-
-
-// Show Fish Page
-
-function showFishes(){
-
-
-showScreen("screen4");
-
-
-loadFishCards();
-
-
-}
-
-
-
-
-// Create Fish Cards
-
-function loadFishCards(){
-
-
-let grid =
-document.getElementById("fishGrid");
-
-
-grid.innerHTML="";
-
-
-
-fishes.forEach((fish,index)=>{
-
-
-let card=document.createElement("div");
-
-
-card.className="card";
-
-
-
-card.innerHTML=`
-
-<div class="fish-icon">
-🐠
-</div>
-
-
-<h2>${fish}</h2>
-
-
-<p>
-🎁 KK FISH CLUB OFFER AVAILABLE
-</p>
-
-
-<button onclick="orderFish('${fish}')">
-
-💚 Order Now
-
-</button>
-
-`;
-
-
-
-grid.appendChild(card);
-
-
-
-});
-
-
-
-}
-
-
-
-
-// WhatsApp Order
-
-function orderFish(fish){
-
-
-let message =
-
-`🐠 KK FISH GDK ORDER
-
-Fish Name:
-${fish}
-
-I want details and price.
+Please send me the combo offer details.
 
 Thank You.`;
 
+    let url =
+"https://wa.me/" + number + "?text=" + encodeURIComponent(message);
 
+    window.open(url, "_blank");
 
-let url =
-
-"https://wa.me/" +
-
-whatsappNumber +
-
-"?text=" +
-
-encodeURIComponent(message);
-
-
-
-window.open(url,"_blank");
-
-
+    button.innerHTML = "✅ Sent";
+    button.style.background = "#28a745";
+    button.disabled = true;
 
 }
-
-
-
-
-// Search Fish
-
-function searchFish(){
-
-
-let search =
-
-document.getElementById("searchFish")
-.value
-.toLowerCase();
-
-
-
-let cards =
-
-document.querySelectorAll(".card");
-
-
-
-cards.forEach(card=>{
-
-
-let name =
-
-card.querySelector("h2")
-.innerText
-.toLowerCase();
-
-
-
-if(name.includes(search)){
-
-
-card.style.display="block";
-
-
-}
-
-else{
-
-
-card.style.display="none";
-
-
-}
-
-
-});
-
-
-
-}
-
-
-
-console.log("🐠 KK FISH CLUB Loaded");
