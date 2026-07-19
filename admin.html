@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KK FISH CLUB ADMIN</title>
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div class="login-page" id="loginPage">
+
+
+<div class="login-box">
+
+
+<h1>🐠 KK FISH CLUB</h1>
+
+<h2>Admin Login</h2>
+
+
+<input 
+type="text"
+id="username"
+placeholder="Username">
+
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+
+<button onclick="login()">
+
+🔐 Login
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- DASHBOARD -->
+
+
+<div class="dashboard" id="dashboard">
+
+
+<header>
+
+
+<h1>
+🐠 KK FISH GDK ADMIN
+</h1>
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+</header>
+
+
+
+
+
+<div class="stats">
+
+
+<div class="stat-box">
+
+<h2>Total Fish</h2>
+
+<h1 id="totalFish">
+0
+</h1>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<section class="add-section">
+
+
+<h2>
+➕ Add New Fish
+</h2>
+
+
+<input
+id="fishName"
+placeholder="Fish Name">
+
+
+
+<input
+id="fishPrice"
+placeholder="Price">
+
+
+
+<input
+id="fishOffer"
+placeholder="Offer">
+
+
+
+<button onclick="addFish()">
+
+Add Fish
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+🐟 Fish List
+</h2>
+
+
+<div id="fishList">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
