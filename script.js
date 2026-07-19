@@ -58,7 +58,9 @@ function checkOfferCode() {
 
 // Show Fish List
 function showFishes() {
+       function showFishes() {
 
+    fishes = JSON.parse(localStorage.getItem("kkfishData")) || [];
     showScreen("screen4");
 
     let grid = document.getElementById("fishGrid");
