@@ -1,47 +1,26 @@
 // =================================
-// KK FISH CLUB ADMIN JS
+// KK FISH CLUB ADMIN
+// admin.js
 // =================================
 
 
-// Admin Login Details
+// LOGIN DETAILS
 
-const adminUsername = "kkfishgdk@123";
-
-const adminPassword = "kkfishgdkclub";
-
+const username = "kkfishgdk@123";
+const password = "kkfishgdkclub";
 
 
-// Fish Data
+
+// LOAD SAVED FISH
 
 let fishes = JSON.parse(
 localStorage.getItem("kkfishData")
-) || [
-
-{
-name:"Kois",
-price:350,
-offer:"Combo Offer"
-},
-
-{
-name:"Guppies",
-price:60,
-offer:"Special Offer"
-},
-
-{
-name:"Flowerhorn",
-price:1800,
-offer:"Premium Fish"
-}
-
-];
+) || [];
 
 
 
 
-
-// LOGIN
+// LOGIN FUNCTION
 
 function login(){
 
@@ -55,10 +34,7 @@ document.getElementById("password").value;
 
 
 
-if(
-user === adminUsername &&
-pass === adminPassword
-){
+if(user === username && pass === password){
 
 
 document.getElementById("loginPage")
@@ -77,14 +53,13 @@ loadFish();
 else{
 
 
-alert("❌ Wrong Username or Password");
+alert("❌ Wrong Login Details");
 
 
 }
 
 
 }
-
 
 
 
@@ -109,11 +84,14 @@ document.getElementById("fishOffer").value;
 
 if(name===""){
 
+
 alert("Enter Fish Name");
 
 return;
 
+
 }
+
 
 
 
@@ -143,32 +121,34 @@ document.getElementById("fishPrice").value="";
 document.getElementById("fishOffer").value="";
 
 
-
 }
 
 
 
 
 
-
-// SHOW FISH
+// DISPLAY FISH
 
 
 function loadFish(){
 
 
-let box =
+let list =
 document.getElementById("fishList");
 
 
-box.innerHTML="";
+if(!list)return;
+
+
+
+list.innerHTML="";
 
 
 
 fishes.forEach((fish,index)=>{
 
 
-box.innerHTML += `
+list.innerHTML += `
 
 
 <div class="fish-card">
@@ -183,7 +163,7 @@ box.innerHTML += `
 
 
 <p>
-🎁 ${fish.offer}
+🎁 Offer: ${fish.offer}
 </p>
 
 
@@ -203,12 +183,10 @@ onclick="deleteFish(${index})">
 </button>
 
 
-
 </div>
 
 
 `;
-
 
 
 });
@@ -219,16 +197,13 @@ document.getElementById("totalFish")
 .innerHTML=fishes.length;
 
 
-
 }
 
 
 
 
 
-
-
-// EDIT
+// EDIT FISH
 
 
 function editFish(index){
@@ -236,45 +211,37 @@ function editFish(index){
 
 let name =
 prompt(
-"Fish Name",
+"Enter Fish Name",
 fishes[index].name
 );
 
 
+
 let price =
 prompt(
-"Price",
+"Enter Price",
 fishes[index].price
 );
 
 
+
 let offer =
 prompt(
-"Offer",
+"Enter Offer",
 fishes[index].offer
 );
 
 
 
-if(name){
+fishes[index]={
 
-fishes[index].name=name;
+name:name,
 
-}
+price:price,
 
+offer:offer
 
-if(price){
-
-fishes[index].price=price;
-
-}
-
-
-if(offer){
-
-fishes[index].offer=offer;
-
-}
+};
 
 
 
@@ -284,20 +251,23 @@ saveFish();
 loadFish();
 
 
-
 }
 
 
 
 
 
-// DELETE
+// DELETE FISH
 
 
 function deleteFish(index){
 
 
-if(confirm("Delete this fish?")){
+let check =
+confirm("Delete this fish?");
+
+
+if(check){
 
 
 fishes.splice(index,1);
@@ -313,8 +283,6 @@ loadFish();
 
 
 }
-
-
 
 
 
@@ -339,8 +307,6 @@ JSON.stringify(fishes)
 
 
 
-
-
 // LOGOUT
 
 
@@ -355,14 +321,11 @@ document.getElementById("loginPage")
 .style.display="flex";
 
 
-
 }
 
 
 
 
-
-
 console.log(
-"🐠 KK FISH CLUB ADMIN READY"
+"🐠 ADMIN PANEL READY"
 );
