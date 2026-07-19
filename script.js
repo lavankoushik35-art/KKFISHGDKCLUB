@@ -113,3 +113,4 @@ Thank You.`;
     button.disabled = true;
 
 }
+alert("Script is working");
