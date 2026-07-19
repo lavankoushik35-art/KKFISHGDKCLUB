@@ -4,7 +4,7 @@ setTimeout(() => {
 }, 3000);
 
 // Fish List
-const fishes = [
+let fishes = JSON.parse(localStorage.getItem("kkfishData")) || [
     "Kois",
     "Guppies",
     "Flowerhorn",
