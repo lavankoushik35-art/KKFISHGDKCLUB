@@ -58,7 +58,6 @@ function checkOfferCode() {
 
 // Show Fish List
 function showFishes() {
-       function showFishes() {
 
     fishes = JSON.parse(localStorage.getItem("kkfishData")) || [];
     showScreen("screen4");
@@ -113,4 +112,4 @@ Thank You.`;
     button.disabled = true;
 
 }
-alert("Script is working");
+
